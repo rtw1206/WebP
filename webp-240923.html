@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>week4</title>
+</head>
+<body>
+  <script>
+    let Obj = {
+      korName : "웹프로그래밍",
+      engName : "WebProgramming",
+      classCode : "V024003",
+      nStudent : 0,
+
+      register : function() {
+        this.nStudent += 1;
+      },
+      unregister : function() {
+        this.nStudent -= 1;
+      },
+      getStudentCount : function() {
+        return this.nStudent;
+      }
+    };
+
+    document.write("<h3>1. 직접 객체 만들기</h3>");
+    document.write("교과목 이름 = ");
+    document.write(Obj.korName);
+    document.write("<br>");
+    document.write("등록 학생 수 = ");
+    document.write(Obj.getStudentCount());
+    document.write("<br>");
+    document.write("after register, 등록 학생 수 = ");
+    Obj.register();
+    document.write(Obj.getStudentCount());
+    document.write("<hr>");
+
+    Obj.unregister();
+    document.write("<h3>2. 리터럴 표기법</h3>");
+    document.write("교과목 이름 = ");
+    document.write(Obj.korName);
+    document.write("<br>");
+    document.write("등록 학생 수 = ");
+    document.write(Obj.getStudentCount());
+    document.write("<br>");
+    document.write("after register, 등록 학생 수 = ");
+    Obj.register();
+    document.write(Obj.getStudentCount());
+    document.write("<hr>");
+    
+    Obj.unregister();
+    document.write("<h3>3. Prototype</h3>");
+    document.write("교과목 이름 = ");
+    document.write(Obj.korName);
+    document.write("<br>");
+    document.write("등록 학생 수 = ");
+    document.write(Obj.getStudentCount());
+    document.write("<br>");
+    document.write("after register, 등록 학생 수 = ");
+    Obj.register();
+    document.write(Obj.getStudentCount());
+    document.write("<hr>");
+  </script>
+
+</body>
+</html>
