@@ -1,0 +1,82 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>계산기 만들기</title>
+  <style>
+    table td {
+      padding-left: 19px;
+    }
+    td button {
+      width : 60px;
+    }
+  </style>
+  <script>
+    function input(obj){
+      let text = document.getElementById('text');
+      if(text.value == 0){
+        text.value = "";
+      }
+      text.value += obj.innerHTML;
+    }
+
+    function deleteText(){
+      let text = document.getElementById('text');
+      text.value = text.value.slice(0, -1);
+    }
+
+    function deleteAllText(){
+      let text = document.getElementById('text');
+      text.value = "0";
+    }
+
+    function doCalc() {
+      let text = document.getElementById('text');
+      text.value = eval(text.value);
+    }
+  </script>
+</head>
+<body>
+  <h2>계산기 만들기</h2>
+  <hr>
+  <input type = "text" id="text" value = "0" style="width :340px">
+  <table border=0>
+    <tr>
+    <td><button class="delete" onclick="deleteText()">BACK</button></td>
+    <td><button class="deleteAll" onclick="deleteAllText()">CE</button></td>
+    <td><button class="deleteAll" onclick="deleteAllText()">C</button></td>
+    <td><button class="doCalc" onclick="doCalc()">=</button></td>
+    </tr>
+
+    <tr>
+    <td><button class="input" onclick="input(this)">7</button></td>
+    <td><button class="input" onclick="input(this)">8</button></td>
+    <td><button class="input" onclick="input(this)">9</button></td>
+    <td><button class="input" onclick="input(this)">/</button></td>
+    </tr>
+
+    <tr>
+    <td><button class="input" onclick="input(this)">4</button></td>
+    <td><button class="input" onclick="input(this)">5</button></td>
+    <td><button class="input" onclick="input(this)">6</button></td>
+    <td><button class="input" onclick="input(this)">*</button></td>
+    </tr>
+
+    <tr>
+    <td><button class="input" onclick="input(this)">1</button></td>
+    <td><button class="input" onclick="input(this)">2</button></td>
+    <td><button class="input" onclick="input(this)">3</button></td>
+    <td><button class="input" onclick="input(this)">-</button></td>
+    </tr>
+    
+    <tr>
+    <td><button class="input" onclick="input(this)">0</button></td>
+    <td><button class="input" onclick="input(this)">+</button></td>
+    <td><button>NONE</button></td>
+    <td><button>NONE</button></td>
+    </tr>
+  </table>
+  
+</body>
+</html>
