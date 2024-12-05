@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Worker Multiplication Test</title>
+</head>
+<body>
+  <h3>Multiplication</h3>
+  <hr>
+  <input id="num1" type="text" size="10"> x
+  <input id="num2" type="text" size="10">
+  <button type="button" id="calculateButton">Calculate</button>
+  <input id="output" type="text" size="10">
+  <script>
+    const multiplicationWorker = new Worker("multiple.js");
+
+    document.getElementById("calculateButton").addEventListener("click", () => {
+      const inputs = {
+        num1: document.getElementById("num1").value,
+        num2: document.getElementById("num2").value
+      };
+      multiplicationWorker.postMessage(inputs);
+    });
+
+    multiplicationWorker.onmessage = (event) => {
+      document.getElementById("output").value = event.data;
+    };
+  </script>
+</body>
+</html>
