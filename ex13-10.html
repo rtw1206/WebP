@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8">
+  <title>웹 워커를 활용한 타이머</title>
+</head>
+<body>
+  <h3>웹 워커를 활용한 타이머</h3>
+  <hr>
+  <div><span id="counter">타이머카운트</span></div>
+  <button type="button" id="startButton">시작</button>
+  <button type="button" id="stopButton">정지</button>
+  <script>
+    const timerWorker = new Worker("timer.js");
+
+    timerWorker.onmessage = function (event) {
+      document.getElementById("counter").textContent = event.data;
+    };
+
+    document.getElementById("startButton").addEventListener("click", () => {
+      timerWorker.postMessage("start");
+    });
+
+    document.getElementById("stopButton").addEventListener("click", () => {
+      timerWorker.postMessage("stop");
+    });
+  </script>
+</body>
+</html>
