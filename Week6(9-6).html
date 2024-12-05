@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Mouse Wheel Image Zoom</title>
+    <style>
+      img {
+        display: block;
+        margin: 20px auto;
+      }
+    </style>
+  </head>
+  <body>
+    <h3>마우스 휠을 이용한 이미지 확대/축소</h3>
+    <hr />
+    <img
+      src="media/apple.png"
+      width="100"
+      height="100"
+      id="imageElement"
+    />
+    <script>
+      const imageElement = document.getElementById('imageElement');
+      let imageSize = 100;
+
+      function adjustImageSize(event) {
+        const zoomFactor = 0.05;
+        if (event.deltaY < 0) {
+          imageSize += imageSize * zoomFactor;
+        } else {
+          imageSize -= imageSize * zoomFactor;
+        }
+        imageElement.style.width = `${imageSize}px`;
+        imageElement.style.height = `${imageSize}px`;
+      }
+
+      imageElement.addEventListener('wheel', adjustImageSize);
+    </script>
+  </body>
+</html>
