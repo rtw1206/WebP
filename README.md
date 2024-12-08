@@ -29,12 +29,11 @@
  
 - Week 7 연습
   - prac10-5.html: 실습문제 10-5와 10-6을 포함 (SetTimeout, SetInterval 이용 시계 보이기)
- 
-- Week 9 연습
   
 - Week 10 연습
   - 13-6
   - 13-10
   - timer.js
 
-- Week 11 연습
+- Week 12 연습
+  - funcPr-practice.js
